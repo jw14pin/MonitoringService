@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<context:component-scan base-package="com.resources" />
+	
+	<bean id="jndiPortal" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName"><value>jdbc/Portal</value></property>
+		<property name="resourceRef"><value>true</value></property>
+	</bean>
+	
+	<bean id="jdbcTemplatePortal" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource"><ref bean="jndiPortal"/></property>
+	</bean>
+	
+
+	<bean id="connector" class="com.dao.connector.Connector">
+		<property name="jdbcTemplatePortal"><ref bean="jdbcTemplatePortal"/></property>
+	</bean>
+
+	<!-- prototype scope for now so that threads do not share the same code, but need a better way to handle this as prototype is recommended only for testing purposes -->
+	<bean id="baseDAO" class="com.dao.BaseDAO" scope="prototype">
+		<property name="connector"><ref bean="connector"/></property>
+	</bean>
+	
+	<!-- going with database loader instead of properties loader implementation -->
+	<bean id="loader" class="com.properties.DatabaseLoader" />
+	
+	<bean id="db" class="com.resources.DB" />
+	
+	<bean id="url" class="com.resources.URL" />
+	
+	<bean id="chain" class="com.resources.Chain" />
+	
+	<bean id="machine" class="com.resources.Machine" />
+
+</beans>

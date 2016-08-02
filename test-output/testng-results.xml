@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="869" started-at="2013-09-27T22:19:38Z" finished-at="2013-09-27T22:19:39Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="869" started-at="2013-09-27T22:19:38Z" finished-at="2013-09-27T22:19:39Z">
+      <class name="com.tests.CommandsTest">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:null(com.tests.CommandsTest)]" name="beforeTest" is-config="true" duration-ms="21" started-at="2013-09-27T17:19:38Z" finished-at="2013-09-27T17:19:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method status="PASS" signature="testManyCommandsExecuted()[pri:0, instance:null(com.tests.CommandsTest)]" name="testManyCommandsExecuted" duration-ms="838" started-at="2013-09-27T17:19:38Z" finished-at="2013-09-27T17:19:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testManyCommandsExecuted -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:null(com.tests.CommandsTest)]" name="afterTest" is-config="true" duration-ms="0" started-at="2013-09-27T17:19:39Z" finished-at="2013-09-27T17:19:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+      </class> <!-- com.tests.CommandsTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
